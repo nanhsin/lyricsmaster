@@ -13,25 +13,32 @@ const RecommendSong = ({ setSelectedWord }) => {
 
     // Split the lyrics into words and make each word clickable
     const clickableLyrics = (lyrics) => {
-        return lyrics.split(" ").map((word, index) => (
-            <span
-                key={index}
-                className='clickable-word'
-                onClick={() => setSelectedWord(word)}
-            >
-                {word + " "}
-            </span>
+        return lyrics.split("\n").map((line, lineIndex) => (
+            <p key={lineIndex}>
+                {line.split(" ").map((word, wordIndex) => (
+                    <>
+                        <span
+                            key={wordIndex}
+                            className='clickable-word'
+                            onClick={() => setSelectedWord(word)}
+                        >
+                            {word}
+                        </span>
+                        {" "}
+                    </>
+                ))}
+            </p>
         ));
     };
 
     return (
         <div>
-            <button onClick={recommendRandomSong}>Recommend a Random Song</button>
+            <button onClick={recommendRandomSong}>Recommend a Song</button>
             {recommendedSong && (
                 <>
                     <h2>{recommendedSong.title}</h2>
                     <h3>{recommendedSong.artist}</h3>
-                    <p>{clickableLyrics(recommendedSong.lyrics)}</p>
+                    <p className="lyrics-container">{clickableLyrics(recommendedSong.lyrics)}</p>
                 </>
             )}
         </div>

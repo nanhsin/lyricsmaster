@@ -2,16 +2,12 @@ const songs = [
   {
     title: "Down Bad",
     artist: "Taylor Swift",
-    lyrics: "[Verse 1]\n\
-              Did you really beam me up\
-              In a cloud of sparkling dust",
+    lyrics: "[Verse 1]\nDid you really beam me up\nIn a cloud of sparkling dust",
   },
   {
     title: "Wildflower",
     artist: "Billie Eilish",
-    lyrics: "[Verse 1]\n\
-              Things fall apart\
-              And time breaks your heart",
+    lyrics: "[Verse 1]\nThings fall apart\nAnd time breaks your heart",
   },
 ];
 

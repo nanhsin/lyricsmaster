@@ -39,9 +39,9 @@ const LookUpDictionary = ({ selectedWord }) => {
     return (
         <div>
             <h2>{vocab.word}</h2>
-            <p><strong>Part of Speech:</strong> {vocab.partOfSpeech}</p>
-            <p><strong>Phonetic:</strong> {vocab.phonetic}</p>
-            <p><strong>Definition:</strong> {vocab.definition}</p>
+            <p>{vocab.phonetic}</p>
+            <p>({vocab.partOfSpeech})</p>
+            <p>{vocab.definition}</p>
         </div>
     );
 };

@@ -22,7 +22,9 @@
   display: flex;
   gap: 2rem;
   align-items: flex-start;
+  justify-content: space-between;
   margin-top: 1rem;
+  text-align: left;
 }
 
 .left-panel {
@@ -34,6 +36,15 @@
 .right-panel {
   width: 40%;
   padding-left: 1rem;
+}
+
+.lyrics-container span {
+  cursor: pointer;
+}
+
+.lyrics-container span:hover {
+  color: #aab0ff;
+  /* text-decoration: underline; */
 }
 
 @keyframes logo-spin {
