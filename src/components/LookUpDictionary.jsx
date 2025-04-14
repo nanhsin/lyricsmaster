@@ -11,17 +11,22 @@ const LookUpDictionary = ({ selectedWord }) => {
                 .then(data => {
                     if (data[0]) {
                         setVocab({
-                            "word": selectedWord,
+                            "word": selectedWord.toLowerCase(),
                             "partOfSpeech": data[0]["meanings"][0]["partOfSpeech"], 
                             "phonetic": data[0]["phonetics"][0]["text"],
                             "definition": data[0]["meanings"][0]["definitions"][0]["definition"]
                         });
                     }
                     else {
-                        setVocab("No definition found");
+                        setVocab({
+                            "word": selectedWord.toLowerCase(),
+                            "partOfSpeech": "",
+                            "phonetic": "",
+                            "definition": "Oops! Couldn't find the word in the dictionary."
+                        });
                     }
                 })
-                .catch(error => console.log(error));
+                .catch(error => console.log("Error fetching data:", error));
             }
     }, [selectedWord]);
 
@@ -34,13 +39,12 @@ const LookUpDictionary = ({ selectedWord }) => {
     if (!vocab) {
         return <p>Loading...</p>
     }
-    
 
     return (
         <div>
             <h2>{vocab.word}</h2>
             <p>{vocab.phonetic}</p>
-            <p>({vocab.partOfSpeech})</p>
+            <p>{vocab.partOfSpeech}</p>
             <p>{vocab.definition}</p>
         </div>
     );

@@ -16,16 +16,15 @@ const RecommendSong = ({ setSelectedWord }) => {
         return lyrics.split("\n").map((line, lineIndex) => (
             <p key={lineIndex}>
                 {line.split(" ").map((word, wordIndex) => (
-                    <>
+                    <React.Fragment key={`${lineIndex}-${wordIndex}`}>
                         <span
-                            key={wordIndex}
                             className='clickable-word'
                             onClick={() => setSelectedWord(word)}
                         >
                             {word}
                         </span>
                         {" "}
-                    </>
+                    </React.Fragment>
                 ))}
             </p>
         ));
@@ -38,7 +37,9 @@ const RecommendSong = ({ setSelectedWord }) => {
                 <>
                     <h2>{recommendedSong.title}</h2>
                     <h3>{recommendedSong.artist}</h3>
-                    <p className="lyrics-container">{clickableLyrics(recommendedSong.lyrics)}</p>
+                    <div className="lyrics-container">
+                        {clickableLyrics(recommendedSong.lyrics)}
+                    </div>
                 </>
             )}
         </div>

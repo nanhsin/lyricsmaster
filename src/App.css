@@ -29,13 +29,14 @@
 
 .left-panel {
   width: 60%;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #565656;
   padding-right: 1rem;
 }
 
 .right-panel {
   width: 40%;
   padding-left: 1rem;
+  position: relative;
 }
 
 .lyrics-container span {
