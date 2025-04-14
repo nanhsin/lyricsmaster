@@ -4,6 +4,11 @@ import RecommendSong from './components/RecommendSong';
 import LookUpDictionary from './components/LookUpDictionary';
 
 function App() {
+  // State to hold the selected word from the lyrics
+  // This will be set when the user clicks a word in the lyrics
+  // on the left panel - RecommendSong component
+  // and passed to the right panel - LookUpDictionary component
+  // to fetch the vocabulary data from the Dictionary API
   const [selectedWord, setSelectedWord] = useState("");
 
   return (

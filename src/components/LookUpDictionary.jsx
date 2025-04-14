@@ -2,8 +2,13 @@ import React, {useState, useEffect} from 'react';
 
 const LookUpDictionary = ({ selectedWord }) => {
 
+    // State to hold the fetched vocabulary data
+    // This will be set when the Dictionary API successfully finds the word
     const [vocab, setVocab] = useState(null);
 
+    // Function to fetch the vocabulary data from the Dictionary API
+    // This will be called when the user clicks (selects) a word
+    // and the selectedWord prop changes
     useEffect(() => {
         if (selectedWord) {
             fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${selectedWord}`)
@@ -35,7 +40,7 @@ const LookUpDictionary = ({ selectedWord }) => {
         return <p>Click a word to look it up</p>
     }
 
-    // If fetch is still in progress, show loading
+    // If fetch is still in progress, show loading message
     if (!vocab) {
         return <p>Loading...</p>
     }

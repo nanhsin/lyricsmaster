@@ -3,6 +3,9 @@ import songs from "./util/songs";
 
 const RecommendSong = ({ setSelectedWord }) => {
 
+    // State to hold the recommended song
+    // This will be set when the user clicks the button
+    // and a random song is selected in the function recommendRandomSong
     const [recommendedSong, setRecommendedSong] = useState(null);
 
     // Recommend a random song from the list saved in ./util/songs.js
@@ -11,7 +14,8 @@ const RecommendSong = ({ setSelectedWord }) => {
         setRecommendedSong(songs[randomIndex]);
     };
 
-    // Split the lyrics into words and make each word clickable
+    // Split the lyrics into lines and words 
+    // and make each word clickable
     const clickableLyrics = (lyrics) => {
         return lyrics.split("\n").map((line, lineIndex) => (
             <p key={lineIndex}>
