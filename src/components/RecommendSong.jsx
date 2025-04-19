@@ -52,7 +52,7 @@ const RecommendSong = ({ setSelectedWord }) => {
                     <React.Fragment key={`${lineIndex}-${wordIndex}`}>
                         <span
                             className='clickable-word'
-                            onClick={() => setSelectedWord(word)}
+                            onClick={() => setSelectedWord(word.toLowerCase().replace(/[.,!?;:"()\[\]]/g, ''))}
                         >
                             {word}
                         </span>

@@ -39,7 +39,7 @@ const LookUpDictionary = ({ selectedWord }) => {
                 .then(data => {
                     if (data[0]) {
                         setVocab({
-                            "word": selectedWord.toLowerCase(),
+                            "word": selectedWord,
                             "partOfSpeech": data[0]["meanings"][0]["partOfSpeech"], 
                             "phonetic": data[0]["phonetics"][0]["text"],
                             "definition": data[0]["meanings"][0]["definitions"][0]["definition"]
